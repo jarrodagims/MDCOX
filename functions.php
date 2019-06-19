@@ -19,35 +19,35 @@ function blankslate_load_scripts() {
 wp_enqueue_style( 'blankslate-style', get_stylesheet_uri() );
 wp_register_script( 'requires', get_stylesheet_directory_uri() . '/js/requires.js', array( 'jquery'), TRUE );
 wp_register_script( 'magnific', get_stylesheet_directory_uri() . '/js/jquery.magnific-popup.min.js', array('jquery'), TRUE);
-wp_register_script( 'scripts', get_stylesheet_directory_uri() . '/js/scripts.min.js', array( 'jquery'), TRUE );
+wp_register_script( 'scripts', get_stylesheet_directory_uri() . '/js/scripts.min.js', array( 'jquery', 'requires'), TRUE );
 
 wp_enqueue_script( 'requires' );
 wp_enqueue_script( 'magnific' );
-wp_enqueue_script( 'scripts' );
+wp_enqueue_script( 'scripts' ); 
 wp_enqueue_script( 'jquery' );
 }
 add_action( 'wp_footer', 'blankslate_footer_scripts' );
 function blankslate_footer_scripts() {
 ?>
 <script>
-jQuery(document).ready(function($) {
-    var deviceAgent = navigator.userAgent.toLowerCase();
-    if (deviceAgent.match(/(iphone|ipod|ipad)/)) {
-        $("html").addClass("ios");
-        $("html").addClass("mobile");
-    }
-    if (navigator.userAgent.search("MSIE") >= 0) {
-        $("html").addClass("ie");
-    } else if (navigator.userAgent.search("Chrome") >= 0) {
-        $("html").addClass("chrome");
-    } else if (navigator.userAgent.search("Firefox") >= 0) {
-        $("html").addClass("firefox");
-    } else if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
-        $("html").addClass("safari");
-    } else if (navigator.userAgent.search("Opera") >= 0) {
-        $("html").addClass("opera");
-    }
-});
+// jQuery(document).ready(function($) {
+//     var deviceAgent = navigator.userAgent.toLowerCase();
+//     if (deviceAgent.match(/(iphone|ipod|ipad)/)) {
+//         $("html").addClass("ios");
+//         $("html").addClass("mobile");
+//     }
+//     if (navigator.userAgent.search("MSIE") >= 0) {
+//         $("html").addClass("ie");
+//     } else if (navigator.userAgent.search("Chrome") >= 0) {
+//         $("html").addClass("chrome");
+//     } else if (navigator.userAgent.search("Firefox") >= 0) {
+//         $("html").addClass("firefox");
+//     } else if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
+//         $("html").addClass("safari");
+//     } else if (navigator.userAgent.search("Opera") >= 0) {
+//         $("html").addClass("opera");
+//     }
+// });
 </script>
 <?php
 }
